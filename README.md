@@ -9,4 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 4. use `npm start` for running as development
 5. build the app with `npm run build`
 
+### Home
 ![Screenshoot](https://github.com/du-disk/stockbit-reactjs-test/blob/master/public/screenshoot.png)
+### Detail
+![Screenshoot](https://github.com/du-disk/stockbit-reactjs-test/blob/master/public/detail.png)
