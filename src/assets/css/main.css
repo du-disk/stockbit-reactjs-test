@@ -298,4 +298,6 @@ td {
   color: #fff;
   width: 200px;
   margin: 20px;
+  border: none;
+  cursor: pointer;
 }

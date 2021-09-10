@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 /* Local Components */
 import Header from '../components/Header';
@@ -21,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    const { isFetching, item } = this.props;
+    const { isFetching, item, history} = this.props;
 
     return (
       <div className="App w-50 m-auto mb-2">
@@ -72,7 +71,7 @@ class App extends Component {
               <td>{item.Production}</td>
             </tr>
           </table>
-          <Link className="btn" to="/">Back</Link>
+          <button className="btn" onClick={()=>history.goBack()}>Back</button>
         </div>
       </div>
     );
