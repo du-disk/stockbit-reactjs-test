@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    const { isFetching, item, history} = this.props;
+    const { isFetching, item, history } = this.props;
 
     return (
       <div className="App w-50 m-auto mb-2">
@@ -71,7 +71,7 @@ class App extends Component {
               <td>{item.Production}</td>
             </tr>
           </table>
-          <button className="btn" onClick={()=>history.goBack()}>Back</button>
+          <button className="btn" onClick={() => history.goBack()}>Back</button>
         </div>
       </div>
     );

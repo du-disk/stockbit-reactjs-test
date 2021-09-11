@@ -8,7 +8,7 @@ import DetailPage from "./containers/Detail";
 
 const history = createBrowserHistory()
 class App extends Component {
-  
+
   render() {
     return (
       <Fragment>

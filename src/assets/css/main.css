@@ -39,6 +39,23 @@ input:focus-visible {
   box-sizing: border-box;
 }
 
+/* Table */
+td {
+  padding: 8px;
+}
+
+/* Button */
+.btn {
+  padding: 12px;
+  border-radius: 50px;
+  background-color: #00ab6b;
+  color: #fff;
+  width: 200px;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+}
+
 .w-25 {
   width: 25%;
 }
@@ -283,21 +300,4 @@ input:focus-visible {
   .modal-content {
     width: 100%;
   }
-}
-
-/* Table */
-td {
-  padding: 8px;
-}
-
-/* Button */
-.btn {
-  padding: 12px;
-  border-radius: 50px;
-  background-color: #00ab6b;
-  color: #fff;
-  width: 200px;
-  margin: 20px;
-  border: none;
-  cursor: pointer;
 }

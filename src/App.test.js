@@ -3,6 +3,8 @@ import Header from './components/Header';
 
 test('Test Header Componennt', () => {
   render(<Header title="Dudi" subtitle="stockbit" />);
-  const linkElement = screen.getByText('Dudi')
-  expect(linkElement).toBeInTheDocument();
+  const title = screen.getByText('Dudi')
+  const subtitle = screen.getByText('stockbit')
+  expect(title).toBeInTheDocument();
+  expect(subtitle).toBeInTheDocument();
 });

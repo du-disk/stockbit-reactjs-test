@@ -30,7 +30,7 @@ class App extends Component {
     this.getMovies({ keyword, page });
   }
 
-  changeHandler = debounce(function(e) {
+  changeHandler = debounce(function (e) {
     const { name, value } = e.target;
 
     this.setState({ [name]: value }, () => {
@@ -40,7 +40,7 @@ class App extends Component {
 
       this.getMovies({ page: name === 'keyword' ? 1 : page, keyword });
     });
-  },500)
+  }, 500)
 
   async getMovies(params) {
     try {
@@ -52,7 +52,6 @@ class App extends Component {
 
   closeModal() {
     const modal = document.getElementById("myModal");
-
     modal.style.display = "none";
   }
 
@@ -61,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-    const { title, subtitle, /* keyword, */ page } = this.state;
+    const { title, subtitle, page } = this.state;
     const { isFetching, items, result, error } = this.props;
 
     return (
@@ -78,15 +77,16 @@ class App extends Component {
             <p > About {result} results.</p>
           </div>
 
-          <InfiniteScroll 
-            page={page} 
-            items={items} 
+          <InfiniteScroll
+            page={page}
+            items={items}
             hasMore={!error}
-            loading={isFetching} 
-            onChange={(e) => this.changeHandler(e)} 
+            loading={isFetching}
+            onChange={(e) => this.changeHandler(e)}
             detailHandler={(id) => this.detailHandler(id)} />
 
           {isFetching && <div className="loader m-auto" />}
+
           {!isFetching && error && <p>{error}</p>}
         </div>
 
