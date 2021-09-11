@@ -30,7 +30,7 @@ class App extends Component {
     this.getMovies({ keyword, page });
   }
 
-  changeHandler = debounce(function (e) {
+  changeHandler(e) {
     const { name, value } = e.target;
 
     this.setState({ [name]: value }, () => {
@@ -40,6 +40,10 @@ class App extends Component {
 
       this.getMovies({ page: name === 'keyword' ? 1 : page, keyword });
     });
+  }
+
+  searchHandler = debounce(function (e) {
+    this.changeHandler(e);
   }, 500)
 
   async getMovies(params) {
@@ -63,16 +67,28 @@ class App extends Component {
     const { title, subtitle, page } = this.state;
     const { isFetching, items, result, error } = this.props;
 
+    const toggleVisible = () => {
+      const floatBtn = document.getElementsByClassName('floating-button')[0];
+      const scrolled = document.documentElement.scrollTop;
+      if (scrolled > 50) {
+        floatBtn.style.add = "block";
+      }
+      else if (scrolled <= 50) {
+        floatBtn.style.display = "none";
+      }
+    };
+    window.addEventListener('scroll', toggleVisible);
+
     return (
       <>
-        <div className="App w-50 m-auto">
+        <div className="App w-50 m-auto" id="top">
           <Header title={title} subtitle={subtitle} className="mb-1" />
 
-          <div className="text-left">
+          <div className="searchField text-left">
             <Input
               name="keyword"
               placeholder="Enter keyword.."
-              onChange={(e) => this.changeHandler(e)}
+              onChange={(e) => this.searchHandler(e)}
             />
             <p > About {result} results.</p>
           </div>
@@ -85,10 +101,12 @@ class App extends Component {
             onChange={(e) => this.changeHandler(e)}
             detailHandler={(id) => this.detailHandler(id)} />
 
-          {isFetching && <div className="loader m-auto" />}
+          {isFetching && <div className="loader m-auto mb-2" />}
 
           {!isFetching && error && <p>{error}</p>}
         </div>
+
+        <a className="floating-button" href="#top">Top</a>
 
         {/* Modal */}
         <div id="myModal" className="modal">

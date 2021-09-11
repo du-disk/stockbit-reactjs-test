@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Proxima Nova Rg", sans-serif;
@@ -295,9 +299,44 @@ td {
   cursor: pointer;
 }
 
+/* Floating */
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  background: #00ab6b;
+  padding: 20px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  width: 25px;
+  display: none;
+  height: 25px;
+  box-shadow: 2px 4px 20px #0000005c;
+}
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;
+  }
+  .w-50 {
+    width: 100%;
+  }
+  .card,
+  .searchField {
+    margin: auto;
+  }
+  .searchField {
+    width: 80%;
+  }
+  .card.mxw-100 {
+    width: auto !important;
+    margin: 15px;
+    padding: 31px;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
